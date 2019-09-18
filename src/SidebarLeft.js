@@ -10,6 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 // import MailIcon from '@material-ui/icons/Mail';
 
 import Tab from './Tabs';
+// import Lists from './Lists';
 
 // <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
 
@@ -40,7 +41,7 @@ export default function SidebarLeft() {
       >
         <div className={classes.toolbar} />
         <Tab />
-        
+
       </Drawer>
     </div>
   );
