@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 // import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import { sizing } from '@material-ui/system';
 // import InboxIcon from '@material-ui/icons/MoveToInbox';
 // import MailIcon from '@material-ui/icons/Mail';
 
@@ -24,7 +25,10 @@ const useStyles = makeStyles(theme => ({
     width: drawerWidth,
   },
   list: {
-    justifyContent: 'end',
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-end",
   },
   button: {
     margin: theme.spacing(10),
@@ -50,7 +54,7 @@ export default function SidebarLeft() {
         New Post
       </Button>
         <Divider />
-        <List>
+        <List className={classes.list}>
           {['About Us', 'GitHub', 'Resumes'].map((text, index) => (
             <ListItem button key={text}>
 
