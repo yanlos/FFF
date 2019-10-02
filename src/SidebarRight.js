@@ -5,12 +5,14 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import Button from '@material-ui/core/Button';
+import Popover from '@material-ui/core/Popover';
+import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 // import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import { sizing } from '@material-ui/system';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
-// import MailIcon from '@material-ui/icons/Mail';
+
+import SimpleDiscount from './SimpleDiscount';
 
 // <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
 
@@ -49,10 +51,34 @@ export default function SidebarLeft() {
         }}
         anchor="right"
       >
-        <div className={classes.toolbar} />
-        <Button variant="contained" color="primary" className={classes.button}>
-        New Post
-      </Button>
+      <div className={classes.toolbar} />
+      <PopupState variant="popover" popupId="post-popover">
+       {popupState => (
+         <div>
+           <Button variant="contained"
+              color="primary" className={classes.button}
+              {...bindTrigger(popupState)}
+           >
+             Make a Post?
+           </Button>
+           <Popover
+             {...bindPopover(popupState)}
+             anchorReference="anchorPosition"
+             anchorPosition={{ top: window.innerHeight/2, left: window.innerWidth/2 }}
+             anchorOrigin={{
+               vertical: 'center',
+               horizontal: 'center',
+             }}
+             transformOrigin={{
+               vertical: 'center',
+               horizontal: 'center',
+             }}
+           >
+              <SimpleDiscount />
+           </Popover>
+         </div>
+        )}
+       </PopupState>
         <Divider />
         <List className={classes.list}>
           {['About Us', 'GitHub', 'Resumes'].map((text, index) => (
