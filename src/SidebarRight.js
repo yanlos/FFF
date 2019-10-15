@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import { sizing } from '@material-ui/system';
 
 import SimpleDiscount from './SimpleDiscount';
+import Popup from './Popup';
 
 // <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
 
@@ -74,7 +75,7 @@ export default function SidebarLeft() {
                horizontal: 'center',
              }}
            >
-              <SimpleDiscount />
+              <Popup />
            </Popover>
          </div>
         )}
