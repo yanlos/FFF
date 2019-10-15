@@ -2,12 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import List from '@material-ui/core/List';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import SimpleDiscount from './SimpleDiscount';
+
+const discounts = []
+for(let i = 0; i < 50; i++)  discounts.push(<SimpleDiscount />)
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,6 +49,12 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     backgroundColor: theme.palette.background.paper,
   },
+  list: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-end",
+  },
 }));
 
 export default function ScrollableTabsButtonAuto() {
@@ -74,22 +84,24 @@ export default function ScrollableTabsButtonAuto() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <SimpleDiscount />
-        <SimpleDiscount />
-        <SimpleDiscount />
-        <SimpleDiscount />
-        <SimpleDiscount />
-        <SimpleDiscount />
-        <SimpleDiscount />
+        <List className={classes.list}>
+          {discounts}
+        </List>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        List...
+        <List className={classes.list}>
+          {discounts}
+        </List>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        List...
+        <List className={classes.list}>
+          {discounts}
+        </List>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        List...
+        <List className={classes.list}>
+          {discounts}
+        </List>
       </TabPanel>
     </div>
   );
