@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@date-io/date-fns": "latest",
     "@material-ui/core": "^4.4.2",
+    "@material-ui/pickers": "latest",
     "@types/date-fns": "^2.6.0",
+    "axios": "^0.19.0",
     "date-fns": "next",
     "material-ui-popup-state": "latest",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1",
-    "@material-ui/pickers": "latest",
-    "@date-io/date-fns": "latest"
+    "react-scripts": "3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
