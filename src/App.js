@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 
 import SidebarLeft from './SidebarLeft';
 import SidebarRight from './SidebarRight';
+import PostList from './Components/PostList';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,7 +43,7 @@ export default function App() {
           </Typography>
         </Toolbar>
       </AppBar>
-
+      <PostList />
       <SidebarLeft />
 
       <main className={classes.content}>
