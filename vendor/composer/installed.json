@@ -1,5 +1,123 @@
 [
     {
+        "name": "asm89/stack-cors",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/asm89/stack-cors.git",
+            "reference": "c163e2b614550aedcf71165db2473d936abbced6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/asm89/stack-cors/zipball/c163e2b614550aedcf71165db2473d936abbced6",
+            "reference": "c163e2b614550aedcf71165db2473d936abbced6",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9",
+            "symfony/http-foundation": "~2.7|~3.0|~4.0",
+            "symfony/http-kernel": "~2.7|~3.0|~4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.0 || ^4.8.10",
+            "squizlabs/php_codesniffer": "^2.3"
+        },
+        "time": "2017-12-20T14:37:45+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Asm89\\Stack\\": "src/Asm89/Stack/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexander",
+                "email": "iam.asm89@gmail.com"
+            }
+        ],
+        "description": "Cross-origin resource sharing library and stack middleware",
+        "homepage": "https://github.com/asm89/stack-cors",
+        "keywords": [
+            "cors",
+            "stack"
+        ]
+    },
+    {
+        "name": "barryvdh/laravel-cors",
+        "version": "v0.11.4",
+        "version_normalized": "0.11.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/barryvdh/laravel-cors.git",
+            "reference": "03492f1a3bc74a05de23f93b94ac7cc5c173eec9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/barryvdh/laravel-cors/zipball/03492f1a3bc74a05de23f93b94ac7cc5c173eec9",
+            "reference": "03492f1a3bc74a05de23f93b94ac7cc5c173eec9",
+            "shasum": ""
+        },
+        "require": {
+            "asm89/stack-cors": "^1.2",
+            "illuminate/support": "^5.5|^6",
+            "php": ">=7",
+            "symfony/http-foundation": "^3.1|^4",
+            "symfony/http-kernel": "^3.1|^4"
+        },
+        "require-dev": {
+            "laravel/framework": "^5.5",
+            "orchestra/testbench": "3.3.x|3.4.x|3.5.x|3.6.x|3.7.x",
+            "phpunit/phpunit": "^4.8|^5.2|^7.0",
+            "squizlabs/php_codesniffer": "^2.3"
+        },
+        "time": "2019-08-28T11:27:11+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.11-dev"
+            },
+            "laravel": {
+                "providers": [
+                    "Barryvdh\\Cors\\ServiceProvider"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Barryvdh\\Cors\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Barry vd. Heuvel",
+                "email": "barryvdh@gmail.com"
+            }
+        ],
+        "description": "Adds CORS (Cross-Origin Resource Sharing) headers support in your Laravel application",
+        "keywords": [
+            "api",
+            "cors",
+            "crossdomain",
+            "laravel"
+        ]
+    },
+    {
         "name": "dnoegel/php-xdg-base-dir",
         "version": "0.1",
         "version_normalized": "0.1.0.0",
@@ -447,17 +565,17 @@
     },
     {
         "name": "facade/ignition",
-        "version": "1.10.0",
-        "version_normalized": "1.10.0.0",
+        "version": "1.11.2",
+        "version_normalized": "1.11.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/facade/ignition.git",
-            "reference": "58a826c2ee5cacf68557fcddfb6eb6c92f495155"
+            "reference": "862cbc2dfffa1fa28b47822a116e5b2e03b421db"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/facade/ignition/zipball/58a826c2ee5cacf68557fcddfb6eb6c92f495155",
-            "reference": "58a826c2ee5cacf68557fcddfb6eb6c92f495155",
+            "url": "https://api.github.com/repos/facade/ignition/zipball/862cbc2dfffa1fa28b47822a116e5b2e03b421db",
+            "reference": "862cbc2dfffa1fa28b47822a116e5b2e03b421db",
             "shasum": ""
         },
         "require": {
@@ -481,7 +599,7 @@
         "suggest": {
             "laravel/telescope": "^2.0"
         },
-        "time": "2019-10-07T19:11:10+00:00",
+        "time": "2019-10-13T10:42:06+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -879,17 +997,17 @@
     },
     {
         "name": "laravel/framework",
-        "version": "v6.1.0",
-        "version_normalized": "6.1.0.0",
+        "version": "v6.3.0",
+        "version_normalized": "6.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "a365bea7ff0dea9a50f5904be9e41656def9af4b"
+            "reference": "80914c430fb5e49f492812d704ba6aeec03d80a2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/a365bea7ff0dea9a50f5904be9e41656def9af4b",
-            "reference": "a365bea7ff0dea9a50f5904be9e41656def9af4b",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/80914c430fb5e49f492812d704ba6aeec03d80a2",
+            "reference": "80914c430fb5e49f492812d704ba6aeec03d80a2",
             "shasum": ""
         },
         "require": {
@@ -985,12 +1103,13 @@
             "league/flysystem-sftp": "Required to use the Flysystem SFTP driver (^1.0).",
             "moontoast/math": "Required to use ordered UUIDs (^1.1).",
             "pda/pheanstalk": "Required to use the beanstalk queue driver (^4.0).",
+            "psr/http-message": "Required to allow Storage::put to accept a StreamInterface (^1.0)",
             "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (^4.0).",
             "symfony/cache": "Required to PSR-6 cache bridge (^4.3.4).",
             "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^1.2).",
             "wildbit/swiftmailer-postmark": "Required to use Postmark mail driver (^3.0)."
         },
-        "time": "2019-10-01T13:55:56+00:00",
+        "time": "2019-10-15T13:38:24+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1091,17 +1210,17 @@
     },
     {
         "name": "league/flysystem",
-        "version": "1.0.55",
-        "version_normalized": "1.0.55.0",
+        "version": "1.0.57",
+        "version_normalized": "1.0.57.0",
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/flysystem.git",
-            "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6"
+            "reference": "0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/33c91155537c6dc899eacdc54a13ac6303f156e6",
-            "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6",
+            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
+            "reference": "0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
             "shasum": ""
         },
         "require": {
@@ -1131,7 +1250,7 @@
             "spatie/flysystem-dropbox": "Allows you to use Dropbox storage",
             "srmklive/flysystem-dropbox-v2": "Allows you to use Dropbox storage for PHP 5 applications"
         },
-        "time": "2019-08-24T11:17:19+00:00",
+        "time": "2019-10-16T21:01:05+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1377,17 +1496,17 @@
     },
     {
         "name": "nesbot/carbon",
-        "version": "2.25.1",
-        "version_normalized": "2.25.1.0",
+        "version": "2.25.2",
+        "version_normalized": "2.25.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/briannesbitt/Carbon.git",
-            "reference": "d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1"
+            "reference": "443fe5f1498147e0fbc792142b5dc43e2e8a533f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1",
-            "reference": "d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1",
+            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/443fe5f1498147e0fbc792142b5dc43e2e8a533f",
+            "reference": "443fe5f1498147e0fbc792142b5dc43e2e8a533f",
             "shasum": ""
         },
         "require": {
@@ -1403,7 +1522,7 @@
             "phpunit/phpunit": "^7.5 || ^8.0",
             "squizlabs/php_codesniffer": "^3.4"
         },
-        "time": "2019-10-05T15:52:23+00:00",
+        "time": "2019-10-14T14:18:59+00:00",
         "bin": [
             "bin/carbon"
         ],
