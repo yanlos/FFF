@@ -8,6 +8,8 @@ import TextField from '@material-ui/core/TextField';
 import 'date-fns';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
+import axios from 'axios';
+
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
@@ -17,7 +19,7 @@ import {
 //className={classes.card}
 /*InputLabelProps={{
   shrink: true,
-}}*/
+}}*/ // DO NOT UNCOMMENT
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -46,24 +48,32 @@ const useStyles = makeStyles(theme => ({
 export default function Popup() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    name: '',
-    address: '',
-    age: '',
-    start: new Date(),//React.useState(new Date()),
-    end: new Date(),//React.useState(new Date()),
-    deal: ''
+    title: '',
+    //address: '', UNCOMMENT
+    //age: '', UNCOMMENT
+    //start: new Date(), UNCOMMENT
+    //end: new Date(), UNCOMMENT
+    description: ''
   });
 
   const handleChange = name => event => {
       setValues({ ...values, [name]: event.target.value });
     };
 
-    const [selectedDate, setSelectedDate] = React.useState(new Date());
+  const handlePost = () => {
+    axios.post(`https://jsonplaceholder.typicode.com/users`,
+    JSON.stringify({...values,...selectedDate}) ).then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+    }
 
-    const handleStartChange = date => {
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
+
+  const handleStartChange = date => {
       setValues({ ...values, ['start']: date});
     };
-    const handleEndChange = date => {
+  const handleEndChange = date => {
       setValues({ ...values, ['end']: date});
     };
 
@@ -74,10 +84,10 @@ export default function Popup() {
           id="standard-full-width"
           label="Restaruant"
           style={{ margin: 8 }}
-          // placeholder="Placeholder"
+          // placeholder="Placeholder" DO NOT UNCOMMENT
           helperText="Required*"
-          value={values.name}
-          onChange={handleChange('name')}
+          value={values.title}
+          onChange={handleChange('title')}
           fullWidth
           margin="normal"
         />
@@ -85,10 +95,10 @@ export default function Popup() {
           id="standard-full-width"
           label="Location"
           style={{ margin: 8 }}
-          // placeholder="Placeholder"
+          // placeholder="Placeholder" DO NOT UNCOMMENT
           helperText="Address"
           value={values.address}
-          onChange={handleChange('address')}
+          // onChange={handleChange('address')} UNCOMMENT
           fullWidth
           margin="normal"
         />
@@ -101,10 +111,8 @@ export default function Popup() {
               margin="normal"
               id="date-picker-inline"
               label="Start Date"
-              value={values.start}
-              // value={values.start}
-              // onChange={handleChange('start')}
-              onChange={handleStartChange}
+              value={new Date()}// value={values.start} REPLACE WITH THIS COMMENT
+              // onChange={handleStartChange} UNCOMMENT
               KeyboardButtonProps={{
                 'aria-label': 'change date',
               }}
@@ -116,24 +124,22 @@ export default function Popup() {
               margin="normal"
               id="date-picker-inline"
               label="End Date"
-              value={values.end}
-              // value={values.end}
-              // onChange={handleChange('end')}
-              onChange={handleEndChange}
+              value={new Date()}// value={values.end} REPLACE WITH THIS COMMENT
+              // onChange={handleEndChange} UNCOMMENT
               KeyboardButtonProps={{
                 'aria-label': 'change date',
               }}
             />
           </Grid>
-        </MuiPickersUtilsProvider>
+       </MuiPickersUtilsProvider>
         <TextField
           id="standard-multiline-static"
           label="Deal"
           multiline
           rows="3"
           placeholder="This one scrolls"
-          value={values.deal}
-          onChange={handleChange('deal')}
+          value={values.description}
+          onChange={handleChange('description')}
           helperText="Required*"
           className={classes.textField}
           margin="normal"
@@ -142,7 +148,7 @@ export default function Popup() {
           id="standard-number"
           label="Number"
           value={values.age}
-          onChange={handleChange('age')}
+          //onChange={handleChange('age')} UNCOMMENT
           type="number"
           className={classes.textField}
           margin="normal"
@@ -152,7 +158,7 @@ export default function Popup() {
         <Button
           size="small"
           color="secondary"
-          onClick={() => { alert(JSON.stringify({...values,...selectedDate})); }}
+          onClick={handlePost}
         >
           Submit
         </Button>
