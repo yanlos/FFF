@@ -23,10 +23,31 @@ const useStyles = makeStyles({
   },
 });
 
+//class Vote extends React.Component {
+//    state = { vote: 0, score: 0 };
+//
+//  vote(type) {
+//    this.setState(state => ({
+//      vote: state.vote === type ? 0 : type
+//    }));
+//  }
+//}
+
 export default function SimpleCard() {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
+    
+    function upvote(votes){
+        votes += votes;
+        return votes;
+    }
+    
+    function downvote(votes){
+        votes += votes;
+        return votes;
+    }
+    
   return (
     <Card className={classes.card}>
       <CardContent>
@@ -45,8 +66,17 @@ export default function SimpleCard() {
           75 E Santa Clara St #130, San Jose, CA 95113
         </Typography>
       </CardContent>
+      
+      
       <CardActions>
         <Button size="small">Learn More</Button>
+        <Button color="primary" size="small"
+        onClick={upvote}
+        >Upvote
+        </Button>
+        <Button size="small" color="secondary"
+        onClick={downvote}
+        > Downvote</Button>
       </CardActions>
     </Card>
   );
