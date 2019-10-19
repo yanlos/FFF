@@ -8,9 +8,13 @@ export default class PostList extends React.Component {
 
 	componentDidMount() {
 		
-		axios.get("http://127.0.0.1.xip.io:8000/api/posts").then(res=> {
+		axios.post("http://127.0.0.1:8000/api/posts", {
+			"title": "Sample title JS",
+			"description": "Sample description JS"
+		}
+		).then(res=> {
 			console.log(res);
-			this.setState({posts: res.data});
+			//this.setState({posts: res.data});
 		});
 		
 	}
