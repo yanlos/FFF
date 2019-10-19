@@ -1,3 +1,4 @@
+## FOR FRONT END ## 
 ## RUN 'npm install' AFTER CLONING THEN 'npm start' ##
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,3 +68,18 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+## FOR BACK END ##
+
+## Requirements
+Please download composer here: https://getcomposer.org/download/
+and laravel 
+## `composer global require laravel/installer`
+
+## In the project directory you can run ##
+1. `composer install`
+2. Create an empty database for our application - under database/
+	create an empty file called `database.sqlite` (automation WiP)
+3. `php artisan migrate` - migrate the database
+4. (optional) `php artisan db:seed` - seed the database
