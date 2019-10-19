@@ -61,8 +61,9 @@ export default function Popup() {
     };
 
   const handlePost = () => {
-    axios.post(`https://jsonplaceholder.typicode.com/users`,
-    JSON.stringify({...values,...selectedDate}) ).then(res => {
+    console.log(JSON.stringify({...values,...selectedDate}));
+    axios.post(`http://127.0.0.1:8000/api/posts`,
+    {...values,...selectedDate}).then(res => {
         console.log(res);
         console.log(res.data);
       })
