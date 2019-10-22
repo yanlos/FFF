@@ -14,9 +14,9 @@ use Illuminate\Http\Request;
 */
 Route::get('/posts', 'PostController@index')->name('posts.index');
 
-Route::get('/posts/{posts}', 'PostController@show')->name('posts.show');
+Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
 
-Route::put('/posts/{posts}', 'PostController@update')->name('posts.update');
+Route::put('/posts/{post}', 'PostController@update')->name('posts.update');
 
-Route::delete('/posts/{posts}', 'PostController@destory')->name('posts.destroy');
+Route::delete('/posts/{post}', 'PostController@destory')->name('posts.destroy');
 

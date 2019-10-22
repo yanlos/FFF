@@ -8,6 +8,9 @@ use Faker\Generator as Faker;
 $factory->define(Post::class, function (Faker $faker) {
     return [
         'title'       => $faker->sentence(),
-        'description' => $faker->text()
+        'description' => $faker->text(),
+        'address'     => $faker->text(),
+        'start_date'  => $faker->dateTime(),
+        'end_date'    => $faker->dateTime(),
     ];
 });
