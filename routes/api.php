@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,11 +11,27 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/posts', 'PostController@index')->name('posts.index');
+//Route::get('/posts', 'PostController@index')->name('posts.index');
+//
+//Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
+//
+//Route::put('/posts/{post}', 'PostController@update')->name('posts.update');
+//
+//Route::delete('/posts/{post}', 'PostController@destory')->name('posts.destroy');
 
-Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
 
-Route::put('/posts/{post}', 'PostController@update')->name('posts.update');
+Route::group(['prefix' => 'auth'], function () {
 
-Route::delete('/posts/{post}', 'PostController@destory')->name('posts.destroy');
+    Route::post('register', 'AuthController@register');
+    Route::post('login', 'AuthController@login');
 
+    Route::group(['middleware' => 'jwt.auth'], function () {
+        Route::post('logout', 'AuthController@logout');
+        Route::post('me', 'AuthController@me');
+    });
+
+    Route::group(['middleware' => 'jwt.refresh'], function () {
+        Route::post('refresh', 'AuthController@refresh');
+    });
+
+});
