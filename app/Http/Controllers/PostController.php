@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use JWTAuth;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -35,6 +36,9 @@ class PostController extends Controller
             'address' => 'required'
         ]);
         $post = Post::create($request->all());
+        $post->author = JWTAuth::user()->name;
+        $post->upvotes = 0;
+        $post->downvotes = 0;
         return response()->json([
             'message' => 'New post created successfully!',
             'post' => $post

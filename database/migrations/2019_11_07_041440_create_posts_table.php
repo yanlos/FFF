@@ -20,9 +20,10 @@ class CreatePostsTable extends Migration
             $table->text('address');
             $table->timestamp('start_date');
             $table->timestamp('end_date');
-            $table->integer('upvotes');
-            $table->integer('downvotes');
+            $table->integer('upvotes')->nullable();
+            $table->integer('downvotes')->nullable();
             $table->timestamps();
+            $table->string('author')->nullable();
         });
     }
 
