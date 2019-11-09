@@ -19,7 +19,17 @@ import {
 //className={classes.card}
 /*InputLabelProps={{
   shrink: true,
-}}*/ // DO NOT UNCOMMENT
+}}
+<TextField
+  id="standard-number"
+  label="Number"
+  value={values.age}
+  onChange={handleChange('age')} //UNCOMMENT
+  type="number"
+  className={classes.textField}
+  margin="normal"
+/>
+*/ // DO NOT UNCOMMENT
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -49,10 +59,10 @@ export default function Popup() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     title: '',
-    //address: '', UNCOMMENT
-    //age: '', UNCOMMENT
-    //start: new Date(), UNCOMMENT
-    //end: new Date(), UNCOMMENT
+    address: '', //UNCOMMENT
+    age: '', //UNCOMMENT
+    start: new Date(), //UNCOMMENT
+    end: new Date(), //UNCOMMENT
     description: ''
   });
 
@@ -61,7 +71,7 @@ export default function Popup() {
     };
 
   const handlePost = () => {
-    console.log(JSON.stringify({...values,...selectedDate}));
+    // console.log(JSON.stringify({...values,...selectedDate}));
     axios.post(`http://127.0.0.1:8000/api/posts`,
     {...values,...selectedDate}).then(res => {
         console.log(res);
@@ -99,7 +109,7 @@ export default function Popup() {
           // placeholder="Placeholder" DO NOT UNCOMMENT
           helperText="Address"
           value={values.address}
-          // onChange={handleChange('address')} UNCOMMENT
+          onChange={handleChange('address')} //UNCOMMENT
           fullWidth
           margin="normal"
         />
@@ -112,8 +122,8 @@ export default function Popup() {
               margin="normal"
               id="date-picker-inline"
               label="Start Date"
-              value={new Date()}// value={values.start} REPLACE WITH THIS COMMENT
-              // onChange={handleStartChange} UNCOMMENT
+              value={values.start} // value={new Date()} REPLACE WITH THIS COMMENT
+              onChange={handleStartChange} //UNCOMMENT
               KeyboardButtonProps={{
                 'aria-label': 'change date',
               }}
@@ -125,8 +135,8 @@ export default function Popup() {
               margin="normal"
               id="date-picker-inline"
               label="End Date"
-              value={new Date()}// value={values.end} REPLACE WITH THIS COMMENT
-              // onChange={handleEndChange} UNCOMMENT
+              value={values.end} //value={new Date()} REPLACE WITH THIS COMMENT
+              onChange={handleEndChange} //UNCOMMENT
               KeyboardButtonProps={{
                 'aria-label': 'change date',
               }}
@@ -142,15 +152,6 @@ export default function Popup() {
           value={values.description}
           onChange={handleChange('description')}
           helperText="Required*"
-          className={classes.textField}
-          margin="normal"
-        />
-        <TextField
-          id="standard-number"
-          label="Number"
-          value={values.age}
-          //onChange={handleChange('age')} UNCOMMENT
-          type="number"
           className={classes.textField}
           margin="normal"
         />

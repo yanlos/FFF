@@ -7,11 +7,24 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import axios from 'axios';
 
-import SimpleDiscount from './SimpleDiscount';
+// import SimpleDiscount from './SimpleDiscount';
+import Discount from './Discount';
 
 const discounts = []
-for(let i = 0; i < 50; i++)  discounts.push(<SimpleDiscount />)
+axios.get(`http://127.0.0.1:8000/api/posts`).then(res => {
+    console.log(res);
+    console.log(res.data);
+  })
+
+for(let i = 0; i < 10; i++)  discounts.push(<Discount
+    user = {res.content.auther} 
+    title = {res.content.title}
+    description = {res.content.description}
+    start_date = {res.content.start_date}
+    end_date = {res.content.end_date}
+   />)
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

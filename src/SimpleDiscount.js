@@ -33,21 +33,21 @@ const useStyles = makeStyles({
 //  }
 //}
 
-export default function SimpleCard() {
+export default function SimpleCard(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
-    
+
     function upvote(votes){
         votes += votes;
         return votes;
     }
-    
+
     function downvote(votes){
         votes += votes;
         return votes;
     }
-    
+
   return (
     <Card className={classes.card}>
       <CardContent>
@@ -66,8 +66,8 @@ export default function SimpleCard() {
           75 E Santa Clara St #130, San Jose, CA 95113
         </Typography>
       </CardContent>
-      
-      
+
+
       <CardActions>
         <Button size="small">Learn More</Button>
         <Button color="primary" size="small"
