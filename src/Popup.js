@@ -60,7 +60,6 @@ export default function Popup() {
   const [values, setValues] = React.useState({
     title: '',
     address: '', //UNCOMMENT
-    age: '', //UNCOMMENT
     start: new Date(), //UNCOMMENT
     end: new Date(), //UNCOMMENT
     description: ''

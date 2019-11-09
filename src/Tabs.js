@@ -14,17 +14,29 @@ import Discount from './Discount';
 
 const discounts = []
 axios.get(`http://127.0.0.1:8000/api/posts`).then(res => {
-    console.log(res);
     console.log(res.data);
+    return res.data;
+  }).then(data => {
+    for(let i = 0; i < 10; i++) {
+    discounts.push(<Discount
+        user = {data[i].author}
+        title = {data[i].title}
+        description = {data[i].description}
+        start_date = {data[i].start_date}
+        end_date = {data[i].end_date}
+       />)
+     }
   })
 
-for(let i = 0; i < 10; i++)  discounts.push(<Discount
-    user = {res.content.auther} 
-    title = {res.content.title}
-    description = {res.content.description}
-    start_date = {res.content.start_date}
-    end_date = {res.content.end_date}
-   />)
+// for(let i = 0; i < 10; i++) {
+// discounts.push(<Discount
+//     user = {data[i].author}
+//     title = {data[i].title}
+//     description = {data[i].description}
+//     start_date = {data[i].start_date}
+//     end_date = {data[i].end_date}
+//    />)
+//  }
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
