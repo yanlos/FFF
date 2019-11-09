@@ -18,16 +18,16 @@ axios.get(`http://127.0.0.1:8000/api/posts`).then(res => {
     return res.data;
   }).then(data => {
     for(let i = 0; i < 10; i++) {
-    discounts.push(<Discount
-        user = {data[i].author}
-        title = {data[i].title}
-        description = {data[i].description}
-        start_date = {data[i].start_date}
-        end_date = {data[i].end_date}
-       />)
+    discounts.push({
+        user : data[i].author,
+        title : data[i].title,
+        description : data[i].description,
+        start_date : data[i].start_date,
+        end_date : data[i].end_date,
+      })
      }
   })
-
+console.log(discounts)
 // for(let i = 0; i < 10; i++) {
 // discounts.push(<Discount
 //     user = {data[i].author}
