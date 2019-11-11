@@ -6,6 +6,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import Button from '@material-ui/core/Button';
 import Popover from '@material-ui/core/Popover';
+import { styled } from '@material-ui/core/styles';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 // import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -14,15 +15,30 @@ import { sizing } from '@material-ui/system';
 
 import SimpleDiscount from './SimpleDiscount';
 import Popup from './Popup';
+import PopupRegister from './PopupRegister.js';
+import PopupLogin from './PopupLogin.js'
 
 // <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
 
 const drawerWidth = 360;
 
+const MyButton = styled(Button)({
+  background: 'linear-gradient(45deg, #7B68EE 30%, #00BFFF 90%)',
+  border: 0,
+  borderRadius: 3,
+  boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+  color: 'white',
+  height: 48,
+  padding: '0 30px',
+});
+
 const useStyles = makeStyles(theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+  },
+  drawerLR:{
+      width: 180,
   },
   drawerPaper: {
     width: drawerWidth,
@@ -56,12 +72,12 @@ export default function SidebarLeft() {
       <PopupState variant="popover" popupId="post-popover">
        {popupState => (
          <div>
-           <Button variant="contained"
-              color="primary" className={classes.button}
+           <MyButton variant="contained"
+              color="red" className={classes.button}
               {...bindTrigger(popupState)}
            >
              Make a Post?
-           </Button>
+           </MyButton>
            <Popover
              {...bindPopover(popupState)}
              anchorReference="anchorPosition"
@@ -80,7 +96,68 @@ export default function SidebarLeft() {
          </div>
         )}
        </PopupState>
+
         <Divider />
+           
+           <PopupState variant="popover" popupId="post-popover">
+       {popupState => (
+         <div>
+           <MyButton variant="contained"
+              color="red" className={classes.button}
+              {...bindTrigger(popupState)}
+           >
+             Register
+           </MyButton>
+           <Popover
+             {...bindPopover(popupState)}
+             anchorReference="anchorPosition"
+             anchorPosition={{ top: window.innerHeight/2, left: window.innerWidth/2 }}
+             anchorOrigin={{
+               vertical: 'center',
+               horizontal: 'center',
+             }}
+             transformOrigin={{
+               vertical: 'center',
+               horizontal: 'center',
+             }}
+           >
+              <PopupRegister />
+               
+           </Popover>
+         </div>
+        )}
+       </PopupState>
+
+<PopupState variant="popover" popupId="post-popover">
+       {popupState => (
+         <div>
+           <MyButton variant="contained"
+              color="blue" className={classes.button}
+              {...bindTrigger(popupState)}
+           >
+             Login
+           </MyButton>
+           <Popover
+             {...bindPopover(popupState)}
+             anchorReference="anchorPosition"
+             anchorPosition={{ top: window.innerHeight/2, left: window.innerWidth/2 }}
+             anchorOrigin={{
+               vertical: 'center',
+               horizontal: 'center',
+             }}
+             transformOrigin={{
+               vertical: 'center',
+               horizontal: 'center',
+             }}
+           >
+              <PopupLogin />
+               
+           </Popover>
+         </div>
+        )}
+       </PopupState>
+           
+           
         <List className={classes.list}>
           {['About Us', 'GitHub', 'Resumes'].map((text, index) => (
             <ListItem button key={text}>
