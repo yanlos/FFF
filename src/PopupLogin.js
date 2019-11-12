@@ -50,6 +50,7 @@ export default function PopupLogin() {
           onChange={handleChange('password')}
           fullWidth
           margin="normal"
+          type="password"
         />
 
       </CardContent>
