@@ -78,8 +78,7 @@ and laravel
 ## `composer global require laravel/installer`
 
 ## In the project directory you can run ##
-1. `composer install`
-2. Create an empty database for our application - under database/
-	create an empty file called `database.sqlite` (automation WiP)
-3. `php artisan migrate` - migrate the database
-4. (optional) `php artisan db:seed` - seed the database
+1. `composer install --no-dev -o`
+2. `php artisan serve` to serve the application 
+
+Note: Please make sure the application is running at 127.0.0.1:8000 for proper functioning of the api
