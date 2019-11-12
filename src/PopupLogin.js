@@ -11,12 +11,12 @@ import axios from 'axios';
 
 export default function PopupLogin() {
   const [values, setValues] = React.useState({
-    username: '',
+    name: '',
     password: '',
   });
 
-  const handleChange = name => event => {
-      setValues({ ...values, [name]: event.target.value });
+  const handleChange = id => event => {
+      setValues({ ...values, [id]: event.target.value });
     };
 
   const handleLogin = () => {
@@ -36,8 +36,8 @@ export default function PopupLogin() {
           label="Username"
           style={{ margin: 8 }}
           helperText="Required"
-          value={values.address}
-          onChange={handleChange('username')}
+          value={values.name}
+          onChange={handleChange('name')}
           fullWidth
           margin="normal"
         />
@@ -46,7 +46,7 @@ export default function PopupLogin() {
           label="Password"
           style={{ margin: 8 }}
           helperText="Required"
-          value={values.address}
+          value={values.password}
           onChange={handleChange('password')}
           fullWidth
           margin="normal"

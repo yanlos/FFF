@@ -10,16 +10,16 @@ import axios from 'axios';
 export default function PopupRegister() {
   const [values, setValues] = React.useState({
     email: '',
-    username: '',
+    name: '',
     password: '',
   });
 
-  const handleChange = name => event => {
-      setValues({ ...values, [name]: event.target.value });
+  const handleChange = id => event => {
+      setValues({ ...values, [id]: event.target.value });
     };
 
   const handleRegister = () => {
-    console.log(JSON.stringify({...values}));
+    // console.log(JSON.stringify({...values}));
     axios.register(`http://127.0.0.1:8000/api/posts`,
     {...values}).then(res => {
         console.log(res);
@@ -35,7 +35,7 @@ export default function PopupRegister() {
           label="Email"
           style={{ margin: 8 }}
           helperText="Required"
-          value={values.name}
+          value={values.email}
           onChange={handleChange('email')}
           fullWidth
           margin="normal"
@@ -45,8 +45,8 @@ export default function PopupRegister() {
           label="Username"
           style={{ margin: 8 }}
           helperText="Required"
-          value={values.address}
-          onChange={handleChange('username')}
+          value={values.name}
+          onChange={handleChange('name')}
           fullWidth
           margin="normal"
         />
@@ -55,7 +55,7 @@ export default function PopupRegister() {
           label="Password"
           style={{ margin: 8 }}
           helperText="Required"
-          value={values.address}
+          value={values.password}
           onChange={handleChange('password')}
           fullWidth
           margin="normal"
