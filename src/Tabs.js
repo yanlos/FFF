@@ -12,35 +12,6 @@ import axios from 'axios';
 // import SimpleDiscount from './SimpleDiscount';
 import Discount from './Discount';
 
-const discounts = []
-
-let stuff = {
-  author : "Zander",
-  title : "FOOD",
-  description : "CHEAP!!",
-  start_date : "NOW",
-  end_date : "NEVER",
-}
-let things = [stuff,stuff];
-
-function makePosts(data) {
-  for(let i = 0; i < data.length; i++) {
-  discounts.push(<Discount
-      user = {data[i].author}
-      title = {data[i].title}
-      description = {data[i].description}
-      start_date = {data[i].start_date}
-      end_date = {data[i].end_date}
-     />)
-   }
-}
-// makePosts(things);
-
-axios.get(`http://127.0.0.1:8000/api/posts`).then(res => {
-    console.log(res.data);
-    makePosts(res.data);
-    // return res.data;
-  })
   // .then(data => {
   //   for(let i = 0; i < 10; i++) {
   //   discounts.push({
@@ -63,9 +34,37 @@ axios.get(`http://127.0.0.1:8000/api/posts`).then(res => {
 //     end_date = "NEVER"
 //    />)
 //  }
+const discounts = []
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
+
+  // let stuff = {
+  //   author : "Zander",
+  //   title : "FOOD",
+  //   description : "CHEAP!!",
+  //   start_date : "NOW",
+  //   end_date : "NEVER",
+  // }
+  // let things = [stuff,stuff];
+
+  function makePosts(data) {
+    for(let i = 0; i < data.length; i++) {
+    discounts.push(<Discount
+        user = {data[i].author}
+        title = {data[i].title}
+        description = {data[i].description}
+        start_date = {data[i].start_date}
+        end_date = {data[i].end_date}
+       />)
+     }
+  }
+  // makePosts(things);
+  axios.get(`http://127.0.0.1:8000/api/posts`).then(res => {
+      console.log(res.data);
+      makePosts(res.data);
+      // return res.data;
+  })
 
   return (
     <Typography

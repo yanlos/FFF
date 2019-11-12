@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import 'date-fns';
+import axios from 'axios';
 
 export default function PopupRegister() {
   const [values, setValues] = React.useState({
@@ -18,7 +19,7 @@ export default function PopupRegister() {
     };
 
   const handleRegister = () => {
-    // console.log(JSON.stringify({...values}));
+    console.log(JSON.stringify({...values}));
     axios.register(`http://127.0.0.1:8000/api/posts`,
     {...values}).then(res => {
         console.log(res);
