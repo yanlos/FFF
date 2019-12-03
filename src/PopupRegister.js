@@ -20,7 +20,7 @@ export default function PopupRegister() {
 
   const handleRegister = () => {
     // console.log(JSON.stringify({...values}));
-    axios.register(`http://127.0.0.1:8000/api/posts`,
+    axios.post(`http://127.0.0.1:8000/api/auth/register`,
     {...values}).then(res => {
         console.log(res);
         console.log(res.data);

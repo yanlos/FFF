@@ -20,13 +20,16 @@ export default class PostList extends React.Component {
   componentDidMount() {
     axios.get(`http://127.0.0.1:8000/api/posts`).then(res => {
       let discounts = []
+      let size = res.data.length - 1;
       for(let i = 0; i < res.data.length; i++) {
+        //console.log(new Date(res.data[size - i].start_date).toDateString());
+        //let endDateSplit = res.data[size - i].split('T');
         discounts.push(<Discount
-        user = {res.data[i].author}
-        title = {res.data[i].title}
-        description = {res.data[i].description}
-        start_date = {res.data[i].start_date}
-        end_date = {res.data[i].end_date}
+        user = {res.data[size-i].author}
+        title = {res.data[size - i].title}
+        description = {res.data[size - i].description}
+        start_date = {new Date(res.data[size - i].start_date).toDateString()}
+        end_date = {new Date(res.data[size - i].end_date).toDateString()}
        />)
      }
       this.setState({discounts});

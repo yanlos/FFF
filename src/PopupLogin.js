@@ -11,7 +11,7 @@ import axios from 'axios';
 
 export default function PopupLogin() {
   const [values, setValues] = React.useState({
-    name: '',
+    email: '',
     password: '',
   });
 
@@ -20,8 +20,8 @@ export default function PopupLogin() {
     };
 
   const handleLogin = () => {
-    // console.log(JSON.stringify({...values}));
-    axios.login(`http://127.0.0.1:8000/api/posts`,
+    console.log(JSON.stringify({...values}));
+    axios.post(`http://127.0.0.1:8000/api/auth/login`,
     {...values}).then(res => {
         console.log(res);
         console.log(res.data);
@@ -33,11 +33,11 @@ export default function PopupLogin() {
       <CardContent>
         <TextField
           id="standard-full-width"
-          label="Username"
+          label="Email"
           style={{ margin: 8 }}
           helperText="Required"
-          value={values.name}
-          onChange={handleChange('name')}
+          value={values.email}
+          onChange={handleChange('email')}
           fullWidth
           margin="normal"
         />

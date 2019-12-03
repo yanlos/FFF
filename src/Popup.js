@@ -60,8 +60,8 @@ export default function Popup() {
   const [values, setValues] = React.useState({
     title: '',
     address: '', //UNCOMMENT
-    start: new Date(), //UNCOMMENT
-    end: new Date(), //UNCOMMENT
+    start_date: new Date(), //UNCOMMENT
+    end_date: new Date(), //UNCOMMENT
     description: ''
   });
 
@@ -70,21 +70,21 @@ export default function Popup() {
     };
 
   const handlePost = () => {
-    // console.log(JSON.stringify({...values,...selectedDate}));
+    console.log(JSON.stringify({...values,...selectedDate}));
     axios.post(`http://127.0.0.1:8000/api/posts`,
     {...values,...selectedDate}).then(res => {
         console.log(res);
         console.log(res.data);
-      })
+      });
     }
 
   const [selectedDate, setSelectedDate] = React.useState(new Date());
 
   const handleStartChange = date => {
-      setValues({ ...values, ['start']: date});
+      setValues({ ...values, ['start_date']: date});
     };
   const handleEndChange = date => {
-      setValues({ ...values, ['end']: date});
+      setValues({ ...values, ['end_date']: date});
     };
 
   return (
