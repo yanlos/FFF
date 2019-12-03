@@ -35,8 +35,9 @@ class PostController extends Controller
             'end_date' => 'required',
             'address' => 'required'
         ]);
+        //$post->author = 'KeroPhantom'
         $post = Post::create($request->all());
-        $post->author = JWTAuth::user()->name;
+        
         $post->upvotes = 0;
         $post->downvotes = 0;
         return response()->json([

@@ -30,13 +30,13 @@ Route::group(['prefix' => 'auth'], function () {
     */
 });
 
-Route::group(['middleware' => ['jwt.verify']], function() {
+//Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('/posts', 'PostController@index')->name('posts.index');
     Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
     Route::put('/posts/{post}', 'PostController@update')->name('posts.update'); 
     Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
     Route::post('/posts', 'PostController@store')->name('posts.store');
-});
+//});
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

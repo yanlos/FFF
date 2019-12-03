@@ -20,10 +20,10 @@ class CreatePostsTable extends Migration
             $table->text('address');
             $table->timestamp('start_date');
             $table->timestamp('end_date');
-            $table->integer('upvotes')->nullable();
-            $table->integer('downvotes')->nullable();
+            $table->integer('upvotes')->nullable()->default('0');
+            $table->integer('downvotes')->nullable()->default('0');
             $table->timestamps();
-            $table->string('author')->nullable();
+            $table->string('author')->nullable()->default("ZOIDMEISTER");
         });
     }
 
