@@ -5,18 +5,27 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import 'date-fns';
+import axios from 'axios';
 
 export default function PopupRegister() {
   const [values, setValues] = React.useState({
     email: '',
-    username: '',
+    name: '',
     password: '',
   });
 
-  const handleChange = name => event => {
-      setValues({ ...values, [name]: event.target.value });
+  const handleChange = id => event => {
+      setValues({ ...values, [id]: event.target.value });
     };
 
+  const handleRegister = () => {
+    // console.log(JSON.stringify({...values}));
+    axios.post(`http://127.0.0.1:8000/api/auth/register`,
+    {...values}).then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+    }
 
   return (
     <Card >
@@ -26,7 +35,7 @@ export default function PopupRegister() {
           label="Email"
           style={{ margin: 8 }}
           helperText="Required"
-          value={values.name}
+          value={values.email}
           onChange={handleChange('email')}
           fullWidth
           margin="normal"
@@ -36,8 +45,8 @@ export default function PopupRegister() {
           label="Username"
           style={{ margin: 8 }}
           helperText="Required"
-          value={values.address}
-          onChange={handleChange('username')}
+          value={values.name}
+          onChange={handleChange('name')}
           fullWidth
           margin="normal"
         />
@@ -46,18 +55,19 @@ export default function PopupRegister() {
           label="Password"
           style={{ margin: 8 }}
           helperText="Required"
-          value={values.address}
+          value={values.password}
           onChange={handleChange('password')}
           fullWidth
           margin="normal"
+          type="password"
         />
-        
+
       </CardContent>
       <CardActions>
         <Button
           size="small"
           color="secondary"
-          onClick={() => { alert(JSON.stringify({...values})); }}
+          onClick={handleRegister}
         >
           Submit
         </Button>

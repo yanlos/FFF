@@ -52,18 +52,18 @@ export default function SimpleCard(props) {
     <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Zander Jacobsen
+          {props.user}
         </Typography>
         <Typography variant="h5" component="h2">
-          $7 Sandwiches
+          {props.description}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Ike's Sandwhiches
+          {props.title} 
         </Typography>
         <Typography variant="body2" component="p">
-          08-01-2019 to Unknown
+          {props.start_date} to {props.end_date}
           <br />
-          75 E Santa Clara St #130, San Jose, CA 95113
+          {props.address}
         </Typography>
       </CardContent>
 
